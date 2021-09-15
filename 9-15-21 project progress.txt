@@ -1,0 +1,4 @@
+Finally finished the user login feature(customer can sign up for an account)
+Options menu for customer completed
+Starting on sql table databases
+Working on employee authorization feature
