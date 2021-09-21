@@ -31,17 +31,16 @@ public class UserMenu {
 //					customer.CustomerSignUp_passcode();
 					
 				}
-				EmployeeApproval ea = new EmployeeApproval();
-				if(response.equals("n") && ea.ApproveAccounts()) {//employeeApproval is going to be a boolean function
-					
-					CustomerMenu returningCustomer = new CustomerMenu();
-					returningCustomer.Credentials();		
-				}else{
-					System.out.println("Your account needs to be approved");
-				break;}
+				
+				if(response.equals("n")) {
+					ApprovalChecker checkUser = new ApprovalChecker();
+					checkUser.approvalChecker();
+				}
+			
 				
 			case"2":
-				//create an employee class and method
+				EmployeeMenu menu = new EmployeeMenu();
+				menu.Credentials();
 				break;
 			
 			default: 

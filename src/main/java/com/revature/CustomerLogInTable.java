@@ -38,19 +38,23 @@ public class CustomerLogInTable{
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-	}
 		
-	 	success = false;
-	 		while(!success){
-				if(employeeApproval){
-					continue;
-					}else{
-						System.out.println("this account has not been approved");
-							break;
-							}
-	 		}
+		ApprovalChecker ac = new ApprovalChecker;
+	
+//	 	boolean success = false;
+//	 		while(!success){
+//				if(EmployeeActivities()){
+//					continue;
+//					}else{
+//						System.out.println("this account has not been approved");
+//						success = true;
+//							break;
+//						
+//							}
+//	 		}
 	 	}
 
+}
 	
 
 //			@SuppressWarnings("unused")

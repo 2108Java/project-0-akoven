@@ -6,6 +6,7 @@ public class UsernameCheck {
 	public UsernameCheck(String username) {
 		super();
 		Username = username;
+		
 	}
 
 	public String getUsername() {

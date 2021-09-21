@@ -1,8 +1,6 @@
 package com.revature;
 
-//import com.target.UserMenu;//this is not needed since it is in the same package
-
-public class TestDriver {
+public class newTestDriver {
 	public static void main(String[] args) {
 //		CustomerToDo test = new CustomerToDo();//object "test" is a new instance of class CustomerToDo
 //		String Username = test.CustomerSignUp_username(); //using methods established in CustomerToDo class
@@ -40,16 +38,18 @@ public class TestDriver {
 //			System.out.println("no go");
 //		}
 //	
+		
 //		
 
-//		UserMenu user = new UserMenu();
-//		user.SignIn();//first thing a user should see, they will select whether they are a customer or an employee
+		UserMenu user = new UserMenu();
+		user.SignIn();//first thing a user should see, they will select whether they are a customer or an employee
+//		
 		
-//		correctLogIn user = new correctLogIn();
-//		user.newUsername();
+//		CustomerMenu test = new CustomerMenu();
+//		test.Credentials();
 		
-		EmployeeActivities test = new EmployeeActivities();
-		test.SeeAllAccounts();
+//		EmployeeActivities test = new EmployeeActivities();
+//		test.SeeAllAccounts();
 		
 		
 //		runningTest = false;
@@ -60,3 +60,4 @@ public class TestDriver {
 //		}
 	}
 }
+

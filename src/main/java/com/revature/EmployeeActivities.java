@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
-public class EmployeeApproval{
+public class EmployeeActivities{
 	private String dbLocation = "localhost";
 	private String username = "postgres";
 	private String password = "@kljeo88";
@@ -30,7 +28,10 @@ public class EmployeeApproval{
 			int i = 0;
 			while (rs.next()) {
 				seeAllCustomers[i] = new employeeToDo(rs.getString("customer_username"),rs.getBoolean("isApproved"));
-				System.out.println(seeAllCustomers[i]);
+				System.out.println(seeAllCustomers[i].getUsername());
+				System.out.println(seeAllCustomers[i].getIsApproved());
+				System.out.println(" ");
+				i++;
 			}	
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -48,6 +49,10 @@ public class EmployeeApproval{
 				int i = 0;
 				while (rs.next()) {
 					seeAllUnapproved[i] = new employeeToDo(rs.getString("customer_username"),rs.getBoolean("isApproved"));
+					System.out.println(seeAllUnapproved[i].getUsername());
+					System.out.println(seeAllUnapproved[i].getIsApproved());
+					System.out.println(" ");
+					i++;
 		}
 			}catch(SQLException e) {
 				e.printStackTrace();
@@ -58,16 +63,17 @@ public class EmployeeApproval{
 			boolean success = false;
 			
 			Scanner scan = new Scanner(System.in);
-			System.out.println("which user would you like to approve(type userID)?: ");
-			String user = scan.nextLine();
-			int UserID = Integer.parseInt(user);
+		
 			
 			try(Connection connection = DriverManager.getConnection(url,username,password)){
 				
-				String sql = "select *from Customer_ID where customer_id = ? set isApproved = true";
+				System.out.println("which user would you like to approve(type username for account)?: ");
+				String user = scan.nextLine();
+				
+				String sql = "select *from Customer_ID where customer_username = ? set isApproved = true";
 				PreparedStatement ps = connection.prepareStatement(sql);
 				
-				ps.setInt(1, UserID);
+				ps.setString(1, user);
 				ps.execute();
 				success = true;
 				if(success) {
@@ -90,6 +96,10 @@ public class EmployeeApproval{
 				int i = 0;
 				while (rs.next()) {
 					seeAllApproved[i] = new employeeToDo(rs.getString("customer_username"),rs.getBoolean("isApproved"));
+					System.out.println(seeAllApproved[i].getUsername());
+					System.out.println(seeAllApproved[i].getIsApproved());
+					System.out.println(" ");
+					i++;
 		}
 			}catch(SQLException e) {
 				e.printStackTrace();

@@ -50,6 +50,7 @@ public class correctLogIn {
 			e.printStackTrace();
 		}return PasswordArray;
 	}
+	
 }
 //	
 //	public void checkPassword() {

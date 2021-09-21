@@ -14,11 +14,21 @@ public class EmployeeMenu {
 		System.out.println("Password: ");
 		String PasswordSelect = scan.nextLine();
 		
+		private void DisplayOfArray(employeeToDo[] array) {
+			for(int i = 0; i<array.length; i++) {
+				if(array[i] != null) {
+					System.out.println(array[i].getCustomer_ID());
+					System.out.println(array[i].getUsername());
+					System.out.println(array[i].getIsApproved());
+					System.out.println("");
+				}
+			}
+		}
 		
-		correctLogIn user = new correctLogIn();
-		FirstnameCheck[] usernameArray = user.newUsername();
-		LastnameCheck[] 
-		PasswordCheck[] passwordArray = user.newPassword();
+//		correctEmployeeLogIn user = new correctEmployeeLogIn();
+//		FirstnameCheck[] FirstnameArray = user.newFirstname();
+//		LastnameCheck[] LastNameArray = user.newLastname();
+//		PasswordCheck[] passwordArray = user.newPassword();
 	
 		for(int i = 0; i < usernameArray.length; i++) {
 			if(Firstname[i].getFirstname() && Lastname[i].getLastname() != null) {
@@ -58,13 +68,13 @@ public class EmployeeMenu {
 					case"1":
 						break;
 					case"2":
-						EmployeeApproval approveAcct = new EmployeeApproval();
+						EmployeeActivities approveAcct = new EmployeeActivities();
 						approveAcct.ApproveAccounts();
 						break;
 					case"3":
 						break;
 					case"4":
-						EmployeeApproval ea = new EmployeeApproval();
+						EmployeeActivities ea = new EmployeeActivities();
 						ea.SeeAllAccounts();
 						break;
 					case"5":

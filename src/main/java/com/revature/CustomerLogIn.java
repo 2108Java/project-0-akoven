@@ -4,6 +4,7 @@ public class CustomerLogIn{
 	
 	private String Username;
 	private String Password;
+	private boolean isApproved;
 	
 	public void setUsername(String Username) {
 		this.Username = Username;
@@ -17,6 +18,10 @@ public class CustomerLogIn{
 
 	public String getPassword() {
 		return Password;
+	}
+	
+	public boolean isApproved() {
+		return isApproved;
 	}
 	
 
