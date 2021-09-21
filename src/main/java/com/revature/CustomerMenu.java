@@ -8,32 +8,7 @@ import java.util.Scanner;
 
 public class CustomerMenu {
 	
-//	private String dbLocation = "localhost";
-//	private String username = "postgres";
-//	private String password = "@kljeo88";
-//	private String url = "jdbc:postgresql://" + dbLocation + "/postgres";
-//	
-//	public boolean approvalCheckForDisplay() {
-//		boolean status = false;
-//		try(Connection connection = DriverManager.getConnection(url,username,password)){
-//			String sql = "select *from  Customer_ID where isApproved = true";
-//			PreparedStatement ps = connection.prepareStatement(sql);
-//			ResultSet rs = ps.executeQuery();
-//		
-//			if(UsernameSelect.equals(rs.getString("customer_username"))) {
-//				status = true;
-//				}
-//			}catch(SQLException e) {
-//		e.printStackTrace();
-//	}return status;
-//	approvalCheckForDisplay checkpoint = new approvalCheckForDisplay();
-//	if(checkpoint) {
-//		display();
-//	}
-//	}
 	
-	
-
 	public void Credentials() {
 
 		Scanner scan = new Scanner(System.in);
@@ -41,17 +16,15 @@ public class CustomerMenu {
 		String UsernameSelect = scan.nextLine();
 		System.out.println("Password: ");
 		String PasswordSelect = scan.nextLine();
-		String usernameSelect = UsernameSelect;
-		String passwordSelect = PasswordSelect;
-		
+
 
 		correctLogIn user = new correctLogIn();
 		UsernameCheck[] usernameArray = user.newUsername();
 		PasswordCheck[] passwordArray = user.newPassword();
-//		ApprovalCheck[] ApprovalArray = user.newApproval();
+
 		
 		for(int i = 0; i < usernameArray.length; i++) {
-			if(usernameArray[i] != null){//need to make sure account is approved as well. for some reason boolean values show up as null(none of the accounts have been approved)
+			if(usernameArray[i] != null){//customer approval taken care of in ApprovalCheck class
 				if(UsernameSelect.equals(usernameArray[i].getUsername())) {
 					if(PasswordSelect.equals(passwordArray[i].getPassword())) {
 						display();
@@ -62,18 +35,19 @@ public class CustomerMenu {
 					}
 				}
 		}
-		}
+	}
 	
 		
 
 		
 		public void OptionsMenu(){
 			System.out.println("Welcome to Bank A, how can we help you?:");
-			System.out.println("1. View balance");
-			System.out.println("2. Make a deposit");
-			System.out.println("3. Make a withdrawl");
-			System.out.println("4. Delete an account");//this should trigger an employee approval?
-			System.out.println("5. Exit application");
+			System.out.println("1. Open an account");
+			System.out.println("2. View balance");
+			System.out.println("3. Make a deposit");
+			System.out.println("4. Make a withdrawl");
+			System.out.println("5. Delete an account");//this should trigger an employee approval?
+			System.out.println("6. Exit application");
 	}
 		
 	
@@ -97,15 +71,20 @@ public class CustomerMenu {
 			
 			switch(input) {		
 				case"1":
-					
+					OpenNewAccount newAccount = new OpenNewAccount(); 
 					break;
 				case"2":
+					AccountActivity balance = new AccountActivity();
 					break;
 				case"3":
+					AccountActivity deposit = new AccountActivity();
 					break;
 				case"4":
+					AccountActivity withdrawl = new AccountActivity();
 					break;
 				case"5":
+					AccountActivity delete = new AccountActivity();
+				case"6":
 					System.out.println("Thank you for using my app!");
 					running = false;
 					break;

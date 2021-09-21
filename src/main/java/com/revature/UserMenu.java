@@ -33,11 +33,11 @@ public class UserMenu {
 				}
 				
 				if(response.equals("n")) {
-					ApprovalChecker checkUser = new ApprovalChecker();
+					customerApproval checkUser = new customerApproval();
 					checkUser.approvalChecker();
 				}
-			
-				
+				break;
+	
 			case"2":
 				EmployeeMenu menu = new EmployeeMenu();
 				menu.Credentials();

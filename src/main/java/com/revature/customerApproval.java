@@ -7,7 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class ApprovalChecker {
+public class customerApproval {
+	
 	private String dbLocation = "localhost";
 	private String username = "postgres";
 	private String password = "@kljeo88";
