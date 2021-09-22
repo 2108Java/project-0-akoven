@@ -118,43 +118,48 @@ public class OpenNewAccount {
 		String customer = scanner.nextLine();
 		System.out.println("How much would you like to deposit intially into your checking account(0 dollars is an option)?:");
 		String value = scanner.nextLine();
-		int money = Integer.parseInt(value);
-		if (money < 0) {
+		int moneyChecking = Integer.parseInt(value);
+		
+		System.out.println("How much would you like to deposit intially into your checking account(0 dollars is an option)?:");
+		String value1 = scanner.nextLine();
+		int moneySavings = Integer.parseInt(value1);
+		if (moneyChecking < 0 || moneySavings < 0) {
 			System.out.println("Positive values only!");
-			newAccount();
 		}else {
 			try(Connection connection = DriverManager.getConnection(url,username,password)){
-				String sql = "insert into customer_checking(customer_username,checking_acct) values (?,?)";
+				String sql = "insert into customer_checkingandsavings(customer_username,checking_acct,savings_acct) values (?,?,?)";
 				PreparedStatement ps = connection.prepareStatement(sql);
 				ps.setString(1, customer);
-				ps.setInt(2, money);
+				ps.setInt(2, moneyChecking);
+				ps.setInt(3,moneySavings);
 				ps.execute();
-		
+				System.out.println("Your joint checking/savings account has been created");
+				menu.display();
 			
 			}catch(SQLException e) {
 				e.printStackTrace();
 		}
 	}
-		System.out.println("How much would you like to deposit intially into your savings account(0 dollars is an option)?:");
-		String value1 = scanner.nextLine();
-		int money1 = Integer.parseInt(value1);
-		if (money1 < 0) {
-			System.out.println("Positive values only!");
-			newAccount();
-		}else {
-			try(Connection connection = DriverManager.getConnection(url,username,password)){
-				String sqlFind = "insert into customer_savings(customer_username,savings_acct) values (?,?)";
-				PreparedStatement psFind = connection.prepareStatement(sqlFind);
-				psFind.setString(1, customer);
-				psFind.setInt(2, money);
-				psFind.execute();
-			
-				System.out.println("Your joint checking-savings account has been created" );
-				menu.display();
-			
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
+//		System.out.println("How much would you like to deposit intially into your savings account(0 dollars is an option)?:");
+//		String value1 = scanner.nextLine();
+//		int money1 = Integer.parseInt(value1);
+//		if (money1 < 0) {
+//			System.out.println("Positive values only!");
+//			newAccount();
+//		}else {
+//			try(Connection connection1 = DriverManager.getConnection(url,username,password)){
+//				String sqlFind = "insert into customer_savings(customer_username,savings_acct) values (?,?)";
+//				PreparedStatement psFind = connection1.prepareStatement(sqlFind);
+//				psFind.setString(1, customer);
+//				psFind.setInt(2, money1);
+//				psFind.execute();
+//			
+//				System.out.println("Your joint checking-savings account has been created" );
+//				menu.display();
+//			
+//			}catch(SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 }

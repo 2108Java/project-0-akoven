@@ -18,4 +18,8 @@ select *from customer_savings;
 create table customer_checkingAndsavings(customer_ID serial primary key, customer_username varchar(20), checking_acct int, savings_acct int);
 
 select *from customer_checkingAndSavings;
+
+update customer_checkingandsavings set checking_acct = (checking_acct - 100),savings_acct = (savings_acct + 100) where customer_username = 'HarryS';
+
+
 drop table customer_checking_savings;

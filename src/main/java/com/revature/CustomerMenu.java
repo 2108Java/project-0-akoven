@@ -46,7 +46,7 @@ public class CustomerMenu {
 			System.out.println("2. View balance");
 			System.out.println("3. Make a deposit");
 			System.out.println("4. Make a withdrawl");
-			System.out.println("5. Make a transfer");
+			System.out.println("5. Make a transfer(available for customers with joint checking/savings accounts only!)");
 			System.out.println("6. Delete an account");
 			System.out.println("7. Exit application");
 	}
@@ -70,13 +70,14 @@ public class CustomerMenu {
 			OptionsMenu();
 			String input = scan.nextLine();
 			
-			switch(input) {		
-				case"1":
+			switch(input) {	
+				case"1"://works	
 					OpenNewAccount newAccount = new OpenNewAccount(); 
 					newAccount.newAccount();
 					break;
-				case"2":
+				case"2"://works
 					AccountActivity balance = new AccountActivity();
+					balance.seeBalances();
 					break;
 				case"3":
 					AccountActivity deposit = new AccountActivity();
@@ -84,16 +85,21 @@ public class CustomerMenu {
 				case"4":
 					AccountActivity withdrawl = new AccountActivity();
 					break;
-				case"5":
-					AccountActivity delete = new AccountActivity();
-				case"6":
+				case"5"://works, but can't put fail safe in for negative values
 					AccountActivity transfer = new AccountActivity();
-				case"7":
+					transfer.makeTransfer();
+					break;
+				case"6"://works
+					AccountActivity delete = new AccountActivity();
+					delete.deleteAccount();
+					break;
+				case"7"://works
 					System.out.println("Thank you for using my app!");
 					running = false;
 					break;
 				default:
 					System.out.println("that is not a valid input!");
+			
 		}
 
 	}
