@@ -5,9 +5,8 @@ select *from Customer_ID;
 alter table customer_id add isApproved = false;
 alter table customer_id add customer_id serial primary key; 
 
-drop table Customer_ID;
 truncate Customer_ID;
-select *from customer_id where isApproved = false and customer_username = 'AnnieO';
+
 
 delete from customer_id where customer_username = 'sfsdfs';
 delete from customer_id where customer_username = 'dsggdd';

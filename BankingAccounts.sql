@@ -11,7 +11,7 @@ create table customer_savings(customer_ID serial primary key, customer_username 
 
 select *from customer_savings;
 
-
+truncate table customer_savings;
 
 
 
@@ -21,5 +21,4 @@ select *from customer_checkingAndSavings;
 
 update customer_checkingandsavings set checking_acct = (checking_acct - 100),savings_acct = (savings_acct + 100) where customer_username = 'HarryS';
 
-
-drop table customer_checking_savings;
+truncate table customer_checkingandsavings;

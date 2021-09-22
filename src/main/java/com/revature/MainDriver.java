@@ -1,6 +1,6 @@
 package com.revature;
 
-public class newTestDriver {
+public class MainDriver {
 	public static void main(String[] args) {
 //		CustomerToDo test = new CustomerToDo();//object "test" is a new instance of class CustomerToDo
 //		String Username = test.CustomerSignUp_username(); //using methods established in CustomerToDo class

@@ -79,11 +79,13 @@ public class CustomerMenu {
 					AccountActivity balance = new AccountActivity();
 					balance.seeBalances();
 					break;
-				case"3":
+				case"3"://works
 					AccountActivity deposit = new AccountActivity();
+					deposit.makeDeposit();
 					break;
-				case"4":
+				case"4"://works
 					AccountActivity withdrawl = new AccountActivity();
+					withdrawl.makeWithdrawl();
 					break;
 				case"5"://works, but can't put fail safe in for negative values
 					AccountActivity transfer = new AccountActivity();

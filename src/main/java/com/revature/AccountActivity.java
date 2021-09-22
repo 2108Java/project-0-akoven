@@ -253,6 +253,10 @@ public class AccountActivity {
 						case"3":
 							deleteCheckingSavings dcs = new deleteCheckingSavings();
 							dcs.delete();
+							break;
+						default:
+							System.out.println("not a valid input!");
+							menu.display();
 					}
 			}
 			
@@ -261,7 +265,64 @@ public class AccountActivity {
 				menu.display();
 			}
 		}
-	}
+	
+		public void makeDeposit() {
+			Scanner scan = new Scanner(System.in);
+			CustomerMenu menu = new CustomerMenu();
+			
+			System.out.println("Would you like to make a deposit into your 1)checkings, 2)savings account, or 3)joint checking/savings?");
+			String decision = scan.nextLine();
+			
+			boolean running = true;
+			while(running) {
+				switch(decision) {
+					case"1":
+						depositChecking checking = new depositChecking();
+						checking.deposit();
+						break;
+					case"2":
+						depositSavings savings = new depositSavings();
+						savings.deposit();
+						break;
+					case"3":
+						depositCheckingSavings checkingSavings = new depositCheckingSavings();
+						checkingSavings.deposit();
+						break;
+					default:
+						System.out.println("invalid input!");
+						menu.display();
+				}
+			}
+		}
 
+		public void makeWithdrawl() {
+			Scanner scan = new Scanner(System.in);
+			CustomerMenu menu = new CustomerMenu();
+			
+			System.out.println("Would you like to withdraw from your 1)checkings, 2)savings account, or 3)joint checking/savings?");
+			String decision = scan.nextLine();
+			
+			boolean running = true;
+			while(running) {
+				switch(decision) {
+				case"1":
+					withdrawChecking checking = new withdrawChecking();
+					checking.withdraw();
+					break;
+				case"2":
+					withdrawSavings savings = new withdrawSavings();
+					savings.withdraw();
+					break;
+				case"3":
+					withdrawCheckingSavings checkingSavings = new withdrawCheckingSavings();
+					checkingSavings.withdraw();
+					break;
+				default:
+					System.out.println("invalid input!");
+					menu.display();
+			}
+		}		
+	}
+}
 
 
