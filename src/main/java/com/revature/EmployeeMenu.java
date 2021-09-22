@@ -2,6 +2,8 @@ package com.revature;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Level;
+
 public class EmployeeMenu {
 	
 	public void Credentials() {
@@ -69,22 +71,27 @@ public class EmployeeMenu {
 				OptionsMenu();
 				String input = scan.nextLine();
 				
+				MainDriver.Bank.setLevel(Level.WARN);
 				switch(input) {		
 					case"1":
 						EmployeeActivities seeUnapproved = new EmployeeActivities();
 						seeUnapproved.SeeUnapprovedAccounts();
+						MainDriver.Bank.info("Employee is viewing all unapproved accounts");
 						break;
 					case"2":
 						EmployeeActivities approveAcct = new EmployeeActivities();
 						approveAcct.approveAccounts();
+						MainDriver.Bank.info("Employee is approving an account");
 						break;
 					case"3":
 						EmployeeActivities seeApproved = new EmployeeActivities();
 						seeApproved.seeAllApprovedAccounts();
+						MainDriver.Bank.info("Employee is viewing all approved accounts");
 						break;
 					case"4":
 						EmployeeActivities ea = new EmployeeActivities();
 						ea.SeeAllAccounts();
+						MainDriver.Bank.info("Customer is viewing all accounts(approved and unapproved)");
 						break;
 					case"5":
 						System.out.println("Thank you for using my app!");
@@ -92,6 +99,7 @@ public class EmployeeMenu {
 						break;
 					default:
 						System.out.println("that is not a valid input!");
+						MainDriver.Bank.warn("User did not select a valid input");
 			}
 
 		}

@@ -15,8 +15,9 @@ public class UserMenu {
 			case"1":
 				System.out.println("Would you like to open a new account? (y/n)");
 				String response = scan.nextLine();
+				MainDriver.Bank.info("User is a customer");
 				
-				if(response.equals("y")) {//why is this not working?program stops after asking if customer would like to open an account(used isEqual method)
+				if(response.equals("y")) {//why is this not working?program stops after asking if customer would like to open an account(used .equals method)
 					CustomerLogInTable newCustomer = new CustomerLogInTable();
 					newCustomer.logIn();
 //					CustomerToDo customer = new CustomerToDo();
@@ -41,6 +42,7 @@ public class UserMenu {
 			case"2":
 				EmployeeMenu menu = new EmployeeMenu();
 				menu.Credentials();
+				MainDriver.Bank.info("User is an employee");
 				break;
 			
 			default: 

@@ -1,10 +1,8 @@
 package com.revature;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.Scanner;
+
+import org.apache.log4j.Level;
 
 public class CustomerMenu {
 	
@@ -70,30 +68,37 @@ public class CustomerMenu {
 			OptionsMenu();
 			String input = scan.nextLine();
 			
+			MainDriver.Bank.setLevel(Level.WARN);
 			switch(input) {	
 				case"1"://works	
 					OpenNewAccount newAccount = new OpenNewAccount(); 
 					newAccount.newAccount();
+					MainDriver.Bank.info("Customer is opening a new account");
 					break;
 				case"2"://works
 					AccountActivity balance = new AccountActivity();
 					balance.seeBalances();
+					MainDriver.Bank.info("Customer is viewing account balance");
 					break;
 				case"3"://works
 					AccountActivity deposit = new AccountActivity();
 					deposit.makeDeposit();
+					MainDriver.Bank.info("Customer is making a deposit");
 					break;
 				case"4"://works
 					AccountActivity withdrawl = new AccountActivity();
 					withdrawl.makeWithdrawl();
+					MainDriver.Bank.info("Customer is making a withdrawl");
 					break;
 				case"5"://works, but can't put fail safe in for negative values
 					AccountActivity transfer = new AccountActivity();
 					transfer.makeTransfer();
+					MainDriver.Bank.info("Customer is transferring funds");
 					break;
 				case"6"://works
 					AccountActivity delete = new AccountActivity();
 					delete.deleteAccount();
+					MainDriver.Bank.info("Customer is deleting an account");
 					break;
 				case"7"://works
 					System.out.println("Thank you for using my app!");
@@ -101,6 +106,7 @@ public class CustomerMenu {
 					break;
 				default:
 					System.out.println("that is not a valid input!");
+					MainDriver.Bank.warn("User did not select a valid input");
 			
 		}
 

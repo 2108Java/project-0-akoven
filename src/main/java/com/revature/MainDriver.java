@@ -1,6 +1,11 @@
 package com.revature;
 
+import org.apache.log4j.Logger;
+
 public class MainDriver {
+	
+	public final static Logger Bank = Logger.getLogger("MainDriver.class");
+	
 	public static void main(String[] args) {
 //		CustomerToDo test = new CustomerToDo();//object "test" is a new instance of class CustomerToDo
 //		String Username = test.CustomerSignUp_username(); //using methods established in CustomerToDo class
@@ -40,11 +45,10 @@ public class MainDriver {
 //	
 		
 //		
-
+		Bank.info("Starting the app");
 		UserMenu user = new UserMenu();
 		user.SignIn();//first thing a user should see, they will select whether they are a customer or an employee
-//		
-		
+
 //		CustomerMenu test = new CustomerMenu();
 //		test.Credentials();
 		
