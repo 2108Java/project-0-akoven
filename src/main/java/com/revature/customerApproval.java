@@ -33,7 +33,6 @@ public class customerApproval {
 			String sqlFind = "select *from Customer_ID where customer_username = ?";
 			PreparedStatement psFind = conn.prepareStatement(sqlFind);
 			psFind.setString(1,customer);
-//			psFind.setBoolean(2, true);
 			ResultSet rs = psFind.executeQuery();
 			
 			

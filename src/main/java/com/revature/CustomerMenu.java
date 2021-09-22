@@ -42,12 +42,13 @@ public class CustomerMenu {
 		
 		public void OptionsMenu(){
 			System.out.println("Welcome to Bank A, how can we help you?:");
-			System.out.println("1. Open an account");
+			System.out.println("1. Open a checking, savings or checking/savings account");
 			System.out.println("2. View balance");
 			System.out.println("3. Make a deposit");
 			System.out.println("4. Make a withdrawl");
-			System.out.println("5. Delete an account");//this should trigger an employee approval?
-			System.out.println("6. Exit application");
+			System.out.println("5. Make a transfer");
+			System.out.println("6. Delete an account");
+			System.out.println("7. Exit application");
 	}
 		
 	
@@ -72,6 +73,7 @@ public class CustomerMenu {
 			switch(input) {		
 				case"1":
 					OpenNewAccount newAccount = new OpenNewAccount(); 
+					newAccount.newAccount();
 					break;
 				case"2":
 					AccountActivity balance = new AccountActivity();
@@ -85,6 +87,8 @@ public class CustomerMenu {
 				case"5":
 					AccountActivity delete = new AccountActivity();
 				case"6":
+					AccountActivity transfer = new AccountActivity();
+				case"7":
 					System.out.println("Thank you for using my app!");
 					running = false;
 					break;

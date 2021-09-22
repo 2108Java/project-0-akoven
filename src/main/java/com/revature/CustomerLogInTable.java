@@ -35,11 +35,12 @@ public class CustomerLogInTable{
 			ps.setString(2, customer.getPassword());
 			ps.setBoolean(3, false);
 			ps.execute();
+			System.out.println("Thank you for choosing Bank A! You will receive an account approval notification via email from one of our associates in a few days.");
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
 		
-		ApprovalChecker ac = new ApprovalChecker;
+//		ApprovalChecker ac = new ApprovalChecker;
 	
 //	 	boolean success = false;
 //	 		while(!success){
